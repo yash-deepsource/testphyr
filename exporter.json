@@ -1,12 +1,12 @@
 {
-    "id": "io.supernova.css",
-    "name": "CSS",
-    "description": "CSS token and style exporter",
-    "author": "Ivan Terpugov & Jiri Trecak",
+    "id": "io.supernova.tailwind",
+    "name": "Tailwind",
+    "description": "CSS token and style exporter + Tailwind exporter",
+    "author": "Ivan Terpugov & Jiri Trecak & Florian Torres",
     "organization": "Supernova",
     "homepage": "https://supernova.io",
     "source_dir": "src",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "config": {
         "sources": "sources.json",
         "output": "output.json",
