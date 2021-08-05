@@ -30,7 +30,7 @@
         },
         {
             "invoke": "tailwind-variables.pr",
-            "write_to": "tailwind-varibles.js"
+            "write_to": "tailwind-variables.js"
         }
     ]
 }
