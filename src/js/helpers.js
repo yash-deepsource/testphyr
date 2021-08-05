@@ -1,5 +1,5 @@
 /**
- * Convert group name, token name and possible prefix into camelCased string, joining everything together
+ * Convert group name, token name and possible prefix into kebab-case string, joining everything together
  */
 Pulsar.registerFunction(
   "readableVariableName",
@@ -21,7 +21,7 @@ Pulsar.registerFunction(
     // camelcase string from all segments
      sentence = sentence
       .toLowerCase()
-      .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())
+      .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => "-" + chr)
     
     // only allow letters, digits, underscore and hyphen
     sentence = sentence.replace(/[^a-zA-Z0-9_-]/g, '_')
@@ -35,6 +35,23 @@ Pulsar.registerFunction(
   }
 );
 
+function getGroupNameFromOriginName(originName){
+  return originName.substr(0, originName.indexOf('/')).trim().toLowerCase()
+}
+
+function getGroups(allTokens){
+  let allGroups = allTokens.map(token => getGroupNameFromOriginName(token.origin.name))
+  let uniqueGroups = [...new Set(allGroups)]
+  return uniqueGroups
+}
+
+Pulsar.registerFunction("getGroups", getGroups)
+
+function getTokensByGroup(allTokens, group) {
+  return allTokens.filter(token => token.origin.name.substr(0, getGroupNameFromOriginName(token.origin.name) === group))
+}
+
+Pulsar.registerFunction("getTokensByGroup", getTokensByGroup)
 
 function findAliases(token, allTokens){
   let aliases = allTokens.filter(t => t.value.referencedToken && t.value.referencedToken.id === token.id)
