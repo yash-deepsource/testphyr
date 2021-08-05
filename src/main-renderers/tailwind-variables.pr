@@ -1,5 +1,5 @@
-const tailwindVariables = {
-    "colors": {
+module.exports = {
+    'colors': {
         {[ let allColorsToken = @ds.tokensByType("Color") /]}
         {[ let groups = @js.getGroups(allColorsToken) /]}
         {[ for group in groups ]}
@@ -17,5 +17,3 @@ const tailwindVariables = {
         {[/]}
     }
 }
-
-export default tailwindVariables;
