@@ -1,17 +1,13 @@
 module.exports = {
     'colors': {
         {[ let allColorsToken = @ds.tokensByType("Color") /]}
-        {[ let groups = @js.getGroups(allColorsToken) /]}
+        {[ let groups = @js.getGroups(allColorsToken.sorted()) /]}
         {[ for group in groups ]}
         {[ let tokensByGroup = @js.getTokensByGroup(allColorsToken, group) /]}
         '{{ group }}': {
             {[ for token in tokensByGroup ]}
-            {[ let tokenName = "" /]}
-            {[ switch token.name ]}
-            {[ case "main" ]}{[ tokenName = "DEFAULT" /]}
-            {[ default ]}{[ tokenName = token.name /]}
-            {[/]}
-            '{{ tokenName }}': 'var(--{[ inject "rendered-name" context token /]})', 
+            {[ let tokenName = token.name.replacing("$", "") /]}
+            '{{ @boolean.ternaryValue(@compare.equals(tokenName, "main"), "DEFAULT", tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]} 
             {[/]}
         },
         {[/]}

@@ -20,6 +20,4 @@ Rendered as:
 
 /* description */
 *}
-{[ if @boolean.not(@compare.empty(context.description)) ]}
-/* {{ context.description.replacing("*/", "* /") }} */
-{[/]}
+{[ if @boolean.not(@compare.empty(context.description)) ]}/* {{ context.description.replacing("*/", "* /") }} */{[/]}
