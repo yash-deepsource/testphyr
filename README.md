@@ -97,13 +97,13 @@ module.exports = {
 }
 ```
 
-Eventually, you can use the **Tailwind variables** in your templates :
+That's it ! You can now use the **Tailwind variables** in your templates :
 
 ```html
 <section class="container mx-auto mt-24">
 
     <h1 class="text-2xl text-primary">Supernova x Tailwind exporter x Tailwind</h1>
-    <p class="text-secondary mt-2">Tailwind setup</p>
+    <p class="text-secondary mt-2">Importing your design system</p>
     <ul class="flex mt-2 text-white">
         <li class="p-2 mr-3 rounded bg-primary-dark2">Dark 2</li>
         <li class="p-2 mr-3 rounded bg-primary-dark1">Dark 1</li>
@@ -116,6 +116,8 @@ Eventually, you can use the **Tailwind variables** in your templates :
 </section>
 ```
 
+<img src="./result-example.png" alt="Result example" style="width:600px;max-width:100%;">
+
 Tokens supported for tailwind exporter :
 
 - [x] Color definitions
@@ -125,6 +127,8 @@ Tokens supported for tailwind exporter :
 - [ ] Borders
 - [ ] Radii
 - [ ] Measures
+
+---
 
 The CSS allows you to **produce a CSS definitions** in such a way that it can be immediately used in your production codebase to style all your visual elements. Specifically, this exporter is capable of exporting the previews of:
 
