@@ -17,7 +17,7 @@ module.exports = {
     {[ const shadowTokens = @ds.tokensByType("Shadow") /]}
     {[ for token in shadowTokens ]}
         {[ let tokenName = token.name.replacing("$", "") /]}
-        '{{ @boolean.ternaryValue(@compare.equals(tokenName, "main"), "DEFAULT", tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]} 
+        '{{ @boolean.ternaryValue(@compare.equals(tokenName, "box-shadow"), "DEFAULT", tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]} 
     {[/]}
     }
 }
