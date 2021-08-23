@@ -123,7 +123,7 @@ Tokens supported for tailwind exporter :
 - [x] Color definitions
 - [ ] Text Styles
 - [ ] Gradients
-- [ ] Shadows
+- [x] Shadows
 - [ ] Borders
 - [ ] Radii
 - [ ] Measures
