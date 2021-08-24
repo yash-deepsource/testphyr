@@ -3,7 +3,7 @@ module.exports = {
     {[ const colorGroup = @ds.tokenGroupTreeByType("Color") /]}
     {[ traverse colorGroup property subgroups into subgroup ]}
         {[ if @boolean.not(subgroup.isRoot) ]}
-        '{{ subgroup.name.lowercased() }}' : {
+        '{{ subgroup.name.lowercased() }}': {
         {[ const tokens = @ds.tokensByGroupId(subgroup.id) /]}
         {[ for token in tokens ]}
             {[ let tokenName = token.name.replacing("$", "") /]}
