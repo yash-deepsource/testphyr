@@ -1,3 +1,5 @@
+/*global module*/
+
 module.exports = {
     'colors': {
     {[ const colorGroup = @ds.tokenGroupTreeByType("Color") /]}
