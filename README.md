@@ -88,7 +88,7 @@ module.exports = {
     purge: [],
     darkMode: false,
     theme: {
-        extend: designSystemVariables, // Add this line
+        extend: designSystemVariables, // Add this line to extend tailwind theme with your design system
     },
     variants: {
         extend: {},
@@ -118,7 +118,7 @@ That's it ! You can now use the **Tailwind variables** in your templates :
 
 <img src="./result-example.png" alt="Result example" style="width:600px;max-width:100%;">
 
-Tokens supported for tailwind exporter :
+Tokens supported by Tailwind exporter :
 
 - [x] Color definitions
 - [ ] Text Styles
@@ -128,47 +128,11 @@ Tokens supported for tailwind exporter :
 - [ ] Radii
 - [ ] Measures
 
----
-
-The CSS allows you to **produce a CSS definitions** in such a way that it can be immediately used in your production codebase to style all your visual elements. Specifically, this exporter is capable of exporting the previews of:
-
-- [x] Color definitions
-- [x] Text Styles
-- [x] Gradients
-- [x] Shadows
-- [x] Borders
-- [x] Radii
-- [x] Measures
-
 You can generate all production ready-code either manually using Supernova's [VS Code extension](https://marketplace.visualstudio.com/items?itemName=SupernovaIO.pulsar-vsc-extension), or automate your code delivery pipeline using Supernova [Design Continuous Delivery](https://supernova.io/automated-code-delivery).
-
-
-## Example Usage
-
-Once you have run the exporter against your design system, you can start using the code in your codebase right away. To use the output of the exporter, simply add the stylesheets to your html page, like this:
-
-```
-<!DOCTYPE html>
-<html>
- <head>
-  <meta charset="utf-8">
-  <title>Style import test</title>
-  <style>
-    @import ".build/index.css";
-  </style>
- </head>
-</html>
-```
-
-Because tokens are defined as css variables, you can use them as such, anywhere you need that value (even in order definitions):
-
-```
-<p style="color: var(--colorContrast)">...</p>
-```
 
 ## Installing
 
-In order to make the Supernova CSS exporter available for your organization so you can start generating code from your design system, please follow the installation guide in our [developer documentation](https://developers.supernova.io/using-exporters/installing-exporters).
+In order to make the Supernova Tailwind exporter available for your organization so you can start generating code from your design system, please follow the installation guide in our [developer documentation](https://developers.supernova.io/using-exporters/installing-exporters).
 
 ## Reporting Bugs or Requesting Features
 
@@ -215,9 +179,3 @@ Additionally, we are also developing and maintaining exporters for specific use 
 - [HTML Preview Exporter](https://github.com/Supernova-Studio/exporter-html-preview)
 
 To browse all exporters created by our amazing community, please visit the [Supernova](https://supernova.io) Exporter Store.
-
-
-
-
-
-

@@ -6,7 +6,7 @@
     "organization": "Ascanio",
     "homepage": "https://ascan.io",
     "source_dir": "src",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "config": {
         "sources": "sources.json",
         "output": "output.json",
