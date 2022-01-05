@@ -19,7 +19,7 @@ module.exports = {
     {[ const shadowTokens = ds.tokensByType("Shadow", brand.id) /]}
     {[ for token in shadowTokens ]}
         {[ let tokenName = token.name.replacing("$", "").replacing(" ", "-") /]}
-        '{{ ((tokenName === "box-shadow") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
+        '{{ ((tokenName === "main") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
 
     {[/]}
     }
