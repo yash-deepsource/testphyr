@@ -1,23 +1,26 @@
 module.exports = {
     'colors': {
-    {[ const colorGroup = ds.tokenGroupTreeByType("Color") /]}
+    {[ let brand = ds.currentBrand() /]}
+    {[ const colorGroup = ds.tokenGroupTreeByType("Color", brand.id) /]}
     {[ traverse colorGroup property subgroups into subgroup ]}
         {[ if !subgroup.isRoot ]}
         '{{ subgroup.name.lowercased() }}': {
         {[ const tokens = ds.tokensByGroupId(subgroup.id) /]}
         {[ for token in tokens ]}
             {[ let tokenName = token.name.replacing("$", "") /]}
-            '{{ ((tokenName === "main") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]} 
+            '{{ ((tokenName === "main") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
+
         {[/]}
         },
         {[/]}
     {[/]}
     },
     'boxShadow': {
-    {[ const shadowTokens = ds.tokensByType("Shadow") /]}
+    {[ const shadowTokens = ds.tokensByType("Shadow", brand.id) /]}
     {[ for token in shadowTokens ]}
-        {[ let tokenName = token.name.replacing("$", "") /]}
-        '{{ ((tokenName === "box-shadow") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]} 
+        {[ let tokenName = token.name.replacing("$", "").replacing(" ", "-") /]}
+        '{{ ((tokenName === "box-shadow") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
+
     {[/]}
     }
 }
