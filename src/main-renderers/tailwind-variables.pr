@@ -22,5 +22,12 @@ module.exports = {
         '{{ ((tokenName === "main") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
 
     {[/]}
+    },
+    'spacing': {
+    {[ const spacingTokens = ds.tokensByType("Measure", brand.id) /]}
+    {[ for token in spacingTokens ]}
+         {[ let tokenName = token.name.replacing("$", "").replacing(" ", "-") /]}
+        '{{ ((tokenName === "main") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
+    {[/]}
     }
 }
