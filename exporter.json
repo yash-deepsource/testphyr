@@ -1,7 +1,7 @@
 {
-  "id": "io.supernova.deepsource",
-  "name": "DeepSource's tailwind exporter",
-  "description": "Tailwind CSS exporter for things built by DeepSource",
+  "id": "io.deepsource.zephyr",
+  "name": "Zephyr",
+  "description": "Tailwind CSS exporter for things built by DeepSource.",
   "author": "DeepSource & Florian Torres & Ivan Terpugov & Jiri Trecak",
   "organization": "DeepSource",
   "homepage": "https://deepsource.io",
