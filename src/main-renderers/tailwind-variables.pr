@@ -22,5 +22,23 @@ module.exports = {
         '{{ ((tokenName === "main") ? "DEFAULT" : tokenName) }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
 
     {[/]}
+    },
+    'spacing': {
+    {[ const spacingTokens = ds.tokensByType("Measure", brand.id) /]}
+    {[ for token in spacingTokens ]}
+         {[ let tokenName = token.name.replacing("$", "").replacing(" ", "-") /]}
+        '{{ tokenName }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
+    
+    {[/]}
+    {[ const customSpacingTokens = ds.tokensByType("Strings", brand.id) /]}
+    {[ traverse customSpacingTokens property subgroups into subgroup ]}
+        {[ if @and(!subgroup.isRoot,subgroup.name.lowercased() === "screens") ]}
+        {[ const screenCustomSpacingTokens = ds.tokensByGroupId(subgroup.id) /]}
+        {[ for screenCustomSpacingToken in screenCustomSpacingTokens ]}
+        {[ let tokenName = token.name.replacing("$", "").replacing(" ", "-") ]}
+        '{{ tokenName }}': '{[ inject "rendered-token-var" context tokenName ]}'
+        {[/]}
+        {[/]}
+    {[/]}
     }
 }
