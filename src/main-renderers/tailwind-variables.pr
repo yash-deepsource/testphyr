@@ -30,13 +30,13 @@ module.exports = {
         '{{ tokenName }}': 'var(--{[ inject "rendered-name" context token /]})', {[ inject "rendered-description" context token /]}
     
     {[/]}
-    {[ const customSpacingTokens = ds.tokensByType("Strings", brand.id) /]}
-    {[ traverse customSpacingTokens property subgroups into subgroup ]}
-        {[ if @and(!subgroup.isRoot,subgroup.name.lowercased() === "screens") ]}
-        {[ const screenCustomSpacingTokens = ds.tokensByGroupId(subgroup.id) /]}
-        {[ for screenCustomSpacingToken in screenCustomSpacingTokens ]}
-        {[ let tokenName = token.name.replacing("$", "").replacing(" ", "-") ]}
-        '{{ tokenName }}': '{[ inject "rendered-token-var" context tokenName ]}'
+    {[ const textGroups = ds.tokenGroupsOfType("Text", brand.id) /]}
+    {[ for group in textGroups ]}
+        {[ if group.name.equals("Screens") ]}
+        {[ const screenTokens = ds.tokensByGroupId(group.id) /]}
+        {[ for token in screenTokens ]}
+        {[ let tokenName = token.name.replacing("$", "").replacing(" ", "-") /]}
+        '{{ tokenName }}': '{[ inject "rendered-token-var" context token /]}'
         {[/]}
         {[/]}
     {[/]}
